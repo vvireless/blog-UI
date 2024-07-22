@@ -1,9 +1,11 @@
 import * as staticData from './staticData.js'
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
-const PORT = 3000;
 
+const PORT = 3000;
+app.use(cors());
 app.get('/blogs', (req, res) => {
     console.log("GET /blogs");
     return res.status(200).json(staticData.blogs);
