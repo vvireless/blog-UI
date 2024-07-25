@@ -31,3 +31,4 @@ To create a production build, use npm run build. \
 webpack compiled successfully
 8. The app should open on your browser automatically. If it does not, you can navigate to the application by searching for `http://localhost:3000` on your browser
 9. When you make changes to the UI (frontend), all you need to do is save the file and refresh the browser to view those changes. There is no need to restart the application.
+10. If you add new dependencies to your project you may need to terminate the connection (by pressing CTRL C in your terminal), run `npm install` and `npm run start` again. 
