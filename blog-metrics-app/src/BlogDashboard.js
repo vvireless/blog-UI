@@ -1,6 +1,6 @@
 import React from 'react';  
-import { Typography, Paper, Grid, Button, IconButton } from '@material-ui/core';  
-import { AddCircle, Edit, Delete } from '@material-ui/icons';  
+import { Typography, Paper, Grid, Button, IconButton } from '@mui/material';  
+import { AddCircle, Edit, Delete } from '@mui/icons-material';  
 import { useEffect, useState } from 'react';  
   
 const BlogDashboard = () => {  
@@ -12,7 +12,7 @@ const BlogDashboard = () => {
   
   const fetchData = async () => {  
     try {  
-      const response = await fetch('http://localhost:3000/blogs'); // Replace with your server's endpoint  
+      const response = await fetch('http://localhost:3001/blogs'); // Replace with your server's endpoint  
       const jsonData = await response.json(); 
       setData(jsonData);  
     } catch (error) {  
