@@ -30,7 +30,7 @@ export const blogs = [
     {
         id: 5,
         title: 'Cloud Computing and Software as a Service (SaaS): The Future of Software',
-        blog: 'Cloud computing and Software as a Service (SaaS) have revolutionized the way we use and access software. With cloud-based solutions, users can access applications and data remotely, eliminating the need for local installations. We will delve into the benefits of cloud computing and SaaS, as well as potential concerns and considerations.',
+        blog: 'Cloud computing and Software as a Service (SaaS) have revolutionized the way we use and access software. With cloud-based solutions, users can access applications and data remotely, eliminating the need for local installations. We will delve into the benefits of cloud computing and SaaS, as well as potential concerns and considerations. Cloud computing and Software as a Service (SaaS) have revolutionized the way we use and access software. With cloud-based solutions, users can access applications and data remotely, eliminating the need for local installations. We will delve into the benefits of cloud computing and SaaS, as well as potential concerns and considerations. Cloud computing and Software as a Service (SaaS) have revolutionized the way we use and access software. With cloud-based solutions, users can access applications and data remotely, eliminating the need for local installations. We will delve into the benefits of cloud computing and SaaS, as well as potential concerns and considerations. ',
         author: 'Sarah Martins',
         username: 'Sarah0001'
     },
