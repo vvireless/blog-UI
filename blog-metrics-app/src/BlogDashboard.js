@@ -8,10 +8,26 @@ import {
   AppBar,
   Toolbar,
 } from '@mui/material';
-import { AddCircle, Edit, Delete } from '@mui/icons-material';
+import { AddCircle, Edit, Delete, Favorite } from '@mui/icons-material';
 import { Card, CardContent, CardActions } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const BlogDashboard = () => {
+  const navigate = useNavigate();
+
+  const handleDashboardNavigation = () => {
+    navigate('/');
+  };
+
+  const loginNavigation = () => {
+    navigate('/login');
+  };
+
+  const registerNavigation = () => {
+    navigate('/register'); 
+  };
+
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -32,54 +48,64 @@ const BlogDashboard = () => {
     // Redirect to "/test"
     window.location.href = '/test';
   };
-
+// backgroundColor: '#D4D2E6'
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: '#D4D2E6', marginBottom: '1rem' }} id='top_nav_bar' >
         <Toolbar>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Blog Dashboard
+          <Typography variant="h5" sx={{ flexGrow: 1, fontFamily: 'Inconsolata', color: 'white', marginLeft: '0.5rem' }}>
+            Blog Dashboard 
           </Typography>
+          <Button color="inherit" onClick={handleDashboardNavigation}>
+            Dashboard
+          </Button>
+          <Button color="inherit" onClick={loginNavigation}>
+            Login
+          </Button>
+          <Button color="inherit" onClick={registerNavigation}>
+            Register
+          </Button>
         </Toolbar>
       </AppBar>
-      <Typography variant="h4" gutterBottom style={{ paddingTop: '1rem', textAlign: 'center', fontFamily: 'Inconsolata', marginLeft: '1.2rem' }}>
-        Blog Dashboard 📝
-      </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper elevation={3} style={{ padding: '1rem' }}>
-            <Typography variant="h5" gutterBottom style={{ marginLeft: '3.5rem', fontFamily: 'Inconsolata' }}>
-              Blog Posts
-            </Typography>
-            <ul>
+        <Grid item xs={12} style={{ padding: 8 }}>
+          <Paper elevation={3} style={{ padding: '3rem', width: '92.3vw', margin: 0 }}>
+          <Typography variant="h5" gutterBottom style={{ fontFamily: 'Inconsolata', marginTop: '-1.5rem' }}>
+            Blog Posts
+          </Typography>
+            <Grid container spacing={3}>
               {data.map((blog) => (
-                <Card key={blog.id} elevation={3} style={{ maxWidth: '800px', margin: '1rem'}}>
-                  <CardContent style={{ fontFamily: 'Inconsolata, monospace' }}>
-                    <Typography variant="h6" style={{ fontFamily: 'Inconsolata, monospace' }}>
-                      {blog.title}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary" style={{ fontFamily: 'Inconsolata, monospace' }}>
-                      Author: {blog.author}
-                    </Typography>
-                    <Typography variant="body2" style={{ fontFamily: 'Inconsolata, monospace' }}>{blog.blog}</Typography>
-                  </CardContent>
-                  <CardActions>
-                    <IconButton style={{ color: '#D2DEE6' }} aria-label="edit">
-                      <Edit/>
-                    </IconButton>
-                    <IconButton style={{ color: '#D4D2E6' }} aria-label="delete">
-                      <Delete/>
-                    </IconButton>
-                  </CardActions>
-                </Card>
+                <Grid item xs={12} sm={6} md={4} lg={4} key={blog.id}>
+                  <Card elevation={3} style={{ borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+                    <CardContent style={{ fontFamily: 'Inconsolata, monospace', backgroundColor: '#f9f9f9', padding: '1.5rem' }}>
+                      <Typography variant="h6" style={{ fontFamily: 'Inconsolata, monospace', color: '#333' }}>
+                        {blog.title}
+                      </Typography>
+                      <Typography variant="caption" color="textSecondary" style={{ fontFamily: 'Inconsolata, monospace', color: '#777', marginTop: 1 }}>
+                        Author: {blog.author}
+                      </Typography>
+                      <Typography variant="body2" style={{ fontFamily: 'Inconsolata, monospace', color: '#555' }}>{blog.blog}</Typography>
+                    </CardContent>
+                    <CardActions>
+                      <IconButton style={{ color: '#D2DEE6' }} aria-label="edit">
+                        <Edit />
+                      </IconButton>
+                      <IconButton style={{ color: '#D4D2E6' }} aria-label="delete">
+                        <Delete />
+                      </IconButton>
+                      <IconButton style={{ color: '#f5e5ea' }} aria-label="like">
+                        <Favorite />
+                      </IconButton>
+                    </CardActions>
+                  </Card>
+                </Grid>
               ))}
-            </ul>
+            </Grid>
             <Button
               variant="contained"
-              color="primary"
               startIcon={<AddCircle />}
               onClick={redirectToTest}
-              style={{ marginLeft: '3.5rem' }}
+              style={{ marginTop: '1rem', backgroundColor: '#D2DEE6' }}  // Use backgroundColor for button color
             >
               Add New Post
             </Button>
